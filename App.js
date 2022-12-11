@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import React from "react";
 import { SvgXml } from "react-native-svg";
+import { db } from "../PBSM-BE/src/Configs/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 // import pbsShield from "./assets/pbsShield";
 
 const styles = StyleSheet.create({
