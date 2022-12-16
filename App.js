@@ -1,14 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import {
-	Button,
-	StyleSheet,
-	Text,
-	View,
-	Pressable,
-	SvgUri,
-} from "react-native";
+import { StyleSheet, Text, View, Pressable, SvgUri } from "react-native";
 import React from "react";
 import { SvgXml } from "react-native-svg";
+import {
+	Provider as PaperProvider,
+	Searchbar,
+	TextInput,
+	Button,
+} from "react-native-paper";
+import AntDesign from "react-native-vector-icons/AntDesign";
 // import { db } from "../PBSM-BE/src/Configs/firebase-config";
 // import { collection, getDocs } from "firebase/firestore";
 // import pbsShield from "./assets/pbsShield";
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 		height: "30%",
 	},
 	professionsSearch: {
-		marginTop: "5%",
+		display: "flex",
 		marginLeft: "auto",
 		marginRight: "auto",
 		width: "90%",
@@ -45,11 +45,12 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: "grey",
 	},
+
 	professionsText: {
+		display: "flex",
 		fonstSize: 20,
 		opacity: 0.5,
 		marginTop: 15,
-		marginLeft: 8,
 	},
 	locationSearch: {
 		marginTop: "1%",
@@ -158,11 +159,31 @@ export default function App() {
 					</View>
 				</View>
 
-				<View style={styles.professionsSearch}>
-					<Text style={styles.professionsText}>Add your profession(s)</Text>
+				<View>
+					<Searchbar
+						style={{
+							width: "90%",
+							display: "flex",
+							marginLeft: "5%",
+							backgroundColor: "#ececec",
+						}}
+						placeholder="Add your profession(s)"
+						selectionColor="blue"
+					/>
 				</View>
-				<View style={styles.locationSearch}>
-					<Text style={styles.locationText}>Add your location</Text>
+				<View style={{ marginTop: "2%" }}>
+					<TextInput
+						mode="outlined"
+						label="Location"
+						placeholder="Dallas, California, etc."
+						selectionColor="blue"
+						style={{
+							width: "90%",
+							display: "flex",
+							marginLeft: "5%",
+							backgroundColor: "#ececec",
+						}}
+					/>
 				</View>
 				<View>
 					<Text style={styles.mentorshipText}>
@@ -177,11 +198,15 @@ export default function App() {
 				<View
 					style={{ display: "flex", alignItems: "center", marginTop: "8%" }}
 				>
-					<Pressable style={styles.buttonStyling}>
-						<Text style={{ fontSize: 12, fontWeight: "bold", color: "white" }}>
-							Search
-						</Text>
-					</Pressable>
+					<Button
+						type="text"
+						mode="elevated"
+						buttonColor="#0504aa"
+						textColor="white"
+						fontWeight="bold"
+					>
+						Search
+					</Button>
 				</View>
 				<View>
 					<Text
