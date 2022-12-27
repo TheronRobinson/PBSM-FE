@@ -9,7 +9,7 @@ import {
 	Button,
 } from "react-native-paper";
 import axios from "axios";
-// import { LOCAL_URL } from "@env";
+import env from "./env";
 // import { db } from "../PBSM-BE/src/Configs/firebase-config";
 // import { collection, getDocs } from "firebase/firestore";
 // import pbsShield from "./assets/pbsShield";
@@ -152,11 +152,12 @@ const pbsShieldXml = `<svg width="57" height="79" viewBox="0 0 57 79" fill="none
 // 			console.log("FE IS NOT CONNECTED");
 // 		});
 // };
-const ngrokCheck = async () => {
+
+const serverCheck = async () => {
 	const ngrokConnect = "FE AND NGROK IS CONNECTED";
 	axios({
 		method: "post",
-		url: "http://192.168.1.239:19001/example",
+		url: `${env.LOCAL_BACKEND_URL}/example`,
 		params: {
 			message: ngrokConnect,
 		},
@@ -224,9 +225,42 @@ export default function App() {
 					</Text>
 				</View>
 				<View style={{ display: "flex", flexDirection: "row", height: "22%" }}>
-					<View style={styles.sigmaMentorContainer}></View>
-					<View style={styles.professionalContainer}></View>
-					<View style={styles.personalContainer}></View>
+					<View style={styles.sigmaMentorContainer}>
+						<Text
+							style={{
+								display: "flex",
+								textAlign: "center",
+								paddingTop: "55%",
+								color: "#9E9E9E",
+							}}
+						>
+							Sigma
+						</Text>
+					</View>
+					<View style={styles.professionalContainer}>
+						<Text
+							style={{
+								display: "flex",
+								textAlign: "center",
+								paddingTop: "55%",
+								color: "#9E9E9E",
+							}}
+						>
+							Professional
+						</Text>
+					</View>
+					<View style={styles.personalContainer}>
+						<Text
+							style={{
+								display: "flex",
+								textAlign: "center",
+								paddingTop: "55%",
+								color: "#9E9E9E",
+							}}
+						>
+							Personal
+						</Text>
+					</View>
 				</View>
 				<View
 					style={{ display: "flex", alignItems: "center", marginTop: "8%" }}
@@ -237,7 +271,7 @@ export default function App() {
 						buttonColor="#0504aa"
 						textColor="white"
 						fontWeight="bold"
-						onPress={ngrokCheck}
+						onPress={serverCheck}
 					>
 						Search
 					</Button>
