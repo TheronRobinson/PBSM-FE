@@ -8,11 +8,11 @@ import {
 	TextInput,
 	Button,
 } from "react-native-paper";
-import AntDesign from "react-native-vector-icons/AntDesign";
+import axios from "axios";
+// import { LOCAL_URL } from "@env";
 // import { db } from "../PBSM-BE/src/Configs/firebase-config";
 // import { collection, getDocs } from "firebase/firestore";
 // import pbsShield from "./assets/pbsShield";
-
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
@@ -135,6 +135,39 @@ const pbsShieldXml = `<svg width="57" height="79" viewBox="0 0 57 79" fill="none
 </svg>
 `;
 
+// const serverCheck = async () => {
+// 	const connected = "FRONTEND IS CONNECTED";
+
+// 	axios({
+// 		method: "post",
+// 		url: "http://192.168.1.239:19001/example",
+// 		params: {
+// 			message: connected,
+// 		},
+// 	})
+// 		.then((response) => {
+// 			console.log(message);
+// 		})
+// 		.catch((err) => {
+// 			console.log("FE IS NOT CONNECTED");
+// 		});
+// };
+const ngrokCheck = async () => {
+	const ngrokConnect = "FE AND NGROK IS CONNECTED";
+	axios({
+		method: "post",
+		url: "http://192.168.1.239:19001/example",
+		params: {
+			message: ngrokConnect,
+		},
+	})
+		.then((response) => {
+			console.log(message);
+		})
+		.catch((err) => {
+			console.log("NGROK AND FE IS NOT CONNECTED");
+		});
+};
 export default function App() {
 	return (
 		<View style={styles.container}>
@@ -204,6 +237,7 @@ export default function App() {
 						buttonColor="#0504aa"
 						textColor="white"
 						fontWeight="bold"
+						onPress={ngrokCheck}
 					>
 						Search
 					</Button>
