@@ -10,6 +10,10 @@ import {
 } from "react-native-paper";
 import axios from "axios";
 import env from "./env";
+import Svg from "react-native-svg";
+import SigmaIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import BriefCaseIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import HandshakeIcon from "react-native-vector-icons/FontAwesome";
 // import { db } from "../PBSM-BE/src/Configs/firebase-config";
 // import { collection, getDocs } from "firebase/firestore";
 // import pbsShield from "./assets/pbsShield";
@@ -226,40 +230,73 @@ export default function App() {
 				</View>
 				<View style={{ display: "flex", flexDirection: "row", height: "22%" }}>
 					<View style={styles.sigmaMentorContainer}>
-						<Text
-							style={{
-								display: "flex",
-								textAlign: "center",
-								paddingTop: "55%",
-								color: "#9E9E9E",
-							}}
-						>
-							Sigma
-						</Text>
+						<View style={{ paddingTop: "25%" }}>
+							<SigmaIcon
+								name="sigma"
+								size={35}
+								style={{
+									display: "flex",
+									textAlign: "center",
+									color: "#0504aa",
+								}}
+							/>
+							<Text
+								style={{
+									display: "flex",
+									textAlign: "center",
+									paddingTop: "5%",
+									color: "#9E9E9E",
+								}}
+							>
+								Sigma
+							</Text>
+						</View>
 					</View>
 					<View style={styles.professionalContainer}>
-						<Text
-							style={{
-								display: "flex",
-								textAlign: "center",
-								paddingTop: "55%",
-								color: "#9E9E9E",
-							}}
-						>
-							Professional
-						</Text>
+						<View style={{ paddingTop: "25%" }}>
+							<BriefCaseIcon
+								name="briefcase-search"
+								size={35}
+								style={{
+									display: "flex",
+									textAlign: "center",
+									color: "#0504aa",
+								}}
+							/>
+							<Text
+								style={{
+									display: "flex",
+									textAlign: "center",
+									paddingTop: "5%",
+									color: "#9E9E9E",
+								}}
+							>
+								Professional
+							</Text>
+						</View>
 					</View>
 					<View style={styles.personalContainer}>
-						<Text
-							style={{
-								display: "flex",
-								textAlign: "center",
-								paddingTop: "55%",
-								color: "#9E9E9E",
-							}}
-						>
-							Personal
-						</Text>
+						<View style={{ paddingTop: "25%" }}>
+							<HandshakeIcon
+								name="handshake-o"
+								size={35}
+								style={{
+									display: "flex",
+									textAlign: "center",
+									color: "#0504aa",
+								}}
+							/>
+							<Text
+								style={{
+									display: "flex",
+									textAlign: "center",
+									paddingTop: "5%",
+									color: "#9E9E9E",
+								}}
+							>
+								Personal
+							</Text>
+						</View>
 					</View>
 				</View>
 				<View
