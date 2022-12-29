@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Pressable, SvgUri } from "react-native";
+import { StyleSheet, Text, View, Pressable, SvgUri, Image } from "react-native";
 import React from "react";
 import { SvgXml } from "react-native-svg";
 import {
@@ -7,6 +7,7 @@ import {
 	Searchbar,
 	TextInput,
 	Button,
+	Card,
 } from "react-native-paper";
 import axios from "axios";
 import env from "./env";
@@ -14,6 +15,7 @@ import Svg from "react-native-svg";
 import SigmaIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import BriefCaseIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import HandshakeIcon from "react-native-vector-icons/FontAwesome";
+import RecentBrothersCard from "../PBSM-FE/components/RecentBrothersCard";
 // import { db } from "../PBSM-BE/src/Configs/firebase-config";
 // import { collection, getDocs } from "firebase/firestore";
 // import pbsShield from "./assets/pbsShield";
@@ -115,17 +117,17 @@ const styles = StyleSheet.create({
 		borderRadius: 50,
 		backgroundColor: "#0504aa",
 	},
-	activeBrothersContainer: {
-		marginTop: "4%",
-		marginLeft: "4%",
-		height: "50%",
-		width: "50%",
-		backgroundColor: "#ececec",
-		borderRadius: 10,
-		shadowColor: "rgba(0, 0, 0, 0.5)",
-		shadowRadius: 5,
-		shadowOpacity: 0.5,
-	},
+	// activeBrothersContainer: {
+	// 	marginTop: "4%",
+	// 	marginLeft: "4%",
+	// 	height: "50%",
+	// 	width: "50%",
+	// 	backgroundColor: "#ececec",
+	// 	borderRadius: 10,
+	// 	shadowColor: "rgba(0, 0, 0, 0.5)",
+	// 	shadowRadius: 5,
+	// 	shadowOpacity: 0.5,
+	// },
 });
 
 const pbsShieldXml = `<svg width="57" height="79" viewBox="0 0 57 79" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -324,24 +326,145 @@ export default function App() {
 						Brothers Recently Active
 					</Text>
 				</View>
-				<View
-					style={{
-						display: "flex",
-						flexDirection: "row",
-						height: "100%",
-						justifyContent: "center",
-						marginRight: "5%",
-					}}
-				>
-					<View style={styles.activeBrothersContainer}>
-						<Text style={{ textAlign: "center", marginTop: "50%" }}>
-							Bro. John Lee
-						</Text>
-					</View>
-					<View style={styles.activeBrothersContainer}>
-						<Text style={{ textAlign: "center", marginTop: "50%" }}>
-							Bro. Theron Robinson
-						</Text>
+				<View>
+					<View
+						style={{
+							display: "flex",
+							flexDirection: "row",
+							height: "100%",
+							width: "150%",
+							justifyContent: "center",
+							marginTop: "3%",
+						}}
+					>
+						<View
+							style={{
+								display: "flex",
+								flexDirection: "row",
+								right: "20%",
+								marginTop: "3%",
+								shadowColor: "black",
+								shadowRadius: 5,
+								shadowOpacity: 0.4,
+							}}
+						>
+							<View
+								style={{
+									backgroundColor: "#ececec",
+									borderRadius: 10,
+									overflow: "hidden",
+									height: 270,
+								}}
+							>
+								<View>
+									<Image
+										source={{
+											uri: "https://images.unsplash.com/photo-1507038732509-8b1a9623223a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJsYWNrJTIwbWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+										}}
+										style={{ height: 175, width: 182 }}
+									/>
+								</View>
+								<View style={{ paddingTop: 10, width: 175 }}>
+									<Text
+										style={{
+											paddingBottom: 2,
+											marginLeft: "2%",
+											fontWeight: "bold",
+										}}
+									>
+										Bro. Kenneth Robinson
+									</Text>
+									<Text
+										style={{
+											paddingTop: 2,
+											marginLeft: "2%",
+											fontWeight: "600",
+											fontSize: 10,
+										}}
+									>
+										UI/UX Engineer @ SWA
+									</Text>
+									<Text
+										style={{
+											paddingTop: 5,
+											marginLeft: "2%",
+											fontWeight: "300",
+											fontSize: 8,
+										}}
+									>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									</Text>
+								</View>
+							</View>
+						</View>
+						<View style={{ display: "flex", right: "19%" }}>
+							<RecentBrothersCard />
+						</View>
+						<View
+							style={{
+								display: "flex",
+								flexDirection: "row",
+								marginTop: "3%",
+								right: "14%",
+								shadowColor: "black",
+								shadowRadius: 5,
+								shadowOpacity: 0.4,
+							}}
+						>
+							<View
+								style={{
+									backgroundColor: "#ececec",
+									borderRadius: 10,
+									shadowColor: "rgba(0, 0, 0, 0.5)",
+									shadowRadius: 5,
+									shadowOpacity: 0.5,
+									overflow: "hidden",
+									height: 270,
+								}}
+							>
+								<View>
+									<Image
+										source={{
+											uri: "https://images.unsplash.com/photo-1589635823089-774fca28fe13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+										}}
+										style={{ height: 175, width: 182 }}
+									/>
+								</View>
+								<View style={{ paddingTop: 10, width: 175 }}>
+									<Text
+										style={{
+											paddingBottom: 2,
+											marginLeft: "2%",
+											fontWeight: "bold",
+										}}
+									>
+										Bro. Jamar Jackson
+									</Text>
+									<Text
+										style={{
+											paddingTop: 2,
+											marginLeft: "2%",
+											fontWeight: "600",
+											fontSize: 10,
+										}}
+									>
+										SWE @ Google
+									</Text>
+									<Text
+										style={{
+											paddingTop: 5,
+											marginLeft: "2%",
+											fontWeight: "300",
+											fontSize: 8,
+										}}
+									>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									</Text>
+								</View>
+							</View>
+						</View>
 					</View>
 				</View>
 			</View>
